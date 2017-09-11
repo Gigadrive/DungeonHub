@@ -2,7 +2,10 @@ package net.wrathofdungeons.dungeonhub.listener;
 
 import net.wrathofdungeons.dungeonapi.event.PlayerCoreDataLoadedEvent;
 import net.wrathofdungeons.dungeonapi.user.User;
+import net.wrathofdungeons.dungeonapi.util.ItemUtil;
 import net.wrathofdungeons.dungeonhub.DungeonHub;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,6 +17,10 @@ public class PlayerJoinListener implements Listener {
         Player p = e.getPlayer();
 
         p.teleport(DungeonHub.spawnLocation);
+        p.getInventory().clear();
+        p.getInventory().setArmorContents(null);
+
+        p.getInventory().addItem(ItemUtil.namedItem(Material.COMPASS, ChatColor.GREEN + "Server Selector",null));
     }
 
     @EventHandler

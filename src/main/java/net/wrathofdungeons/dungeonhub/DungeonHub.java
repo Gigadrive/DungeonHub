@@ -3,9 +3,7 @@ package net.wrathofdungeons.dungeonhub;
 import net.wrathofdungeons.dungeonapi.DungeonAPI;
 import net.wrathofdungeons.dungeonhub.cmd.SelectServerCommand;
 import net.wrathofdungeons.dungeonhub.cmd.SetSpawnCommand;
-import net.wrathofdungeons.dungeonhub.listener.PlayerChatListener;
-import net.wrathofdungeons.dungeonhub.listener.PlayerJoinListener;
-import net.wrathofdungeons.dungeonhub.listener.WeatherChangeListener;
+import net.wrathofdungeons.dungeonhub.listener.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Difficulty;
 import org.bukkit.Location;
@@ -30,8 +28,12 @@ public class DungeonHub extends JavaPlugin {
         mainWorld.setThundering(false);
         mainWorld.setDifficulty(Difficulty.PEACEFUL);
 
+        Bukkit.getPluginManager().registerEvents(new BlockListener(),this);
+        Bukkit.getPluginManager().registerEvents(new InventoryClickListener(),this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(),this);
         Bukkit.getPluginManager().registerEvents(new PlayerChatListener(),this);
+        Bukkit.getPluginManager().registerEvents(new PlayerInteractListener(),this);
+        Bukkit.getPluginManager().registerEvents(new PlayerDropListener(),this);
         Bukkit.getPluginManager().registerEvents(new WeatherChangeListener(),this);
 
         new SetSpawnCommand();
