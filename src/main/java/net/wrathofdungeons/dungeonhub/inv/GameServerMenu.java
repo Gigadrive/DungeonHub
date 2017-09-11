@@ -81,7 +81,7 @@ public class GameServerMenu {
             ArrayList<String> itemLore = new ArrayList<String>();
             itemLore.add(ChatColor.WHITE + "Players: " + color + String.valueOf(a.online) + ChatColor.WHITE + "/" + color + String.valueOf(a.max));
             itemLore.add(" ");
-            if(a.online > a.max){
+            if(a.online < a.max){
                 itemLore.add(ChatColor.LIGHT_PURPLE + "Click to connect!");
             } else {
                 itemLore.add(ChatColor.DARK_RED + "This server is full!");
@@ -93,7 +93,7 @@ public class GameServerMenu {
             inv.withItem(slot,item,((player, action, item1) -> {
                 p.closeInventory();
 
-                if(a.online > a.max){
+                if(a.online < a.max){
                     u.connect(a.name);
                 } else {
                     p.sendMessage(ChatColor.DARK_RED + "This server is full!");
