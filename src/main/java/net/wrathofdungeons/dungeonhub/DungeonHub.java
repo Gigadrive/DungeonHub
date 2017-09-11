@@ -1,6 +1,7 @@
 package net.wrathofdungeons.dungeonhub;
 
 import net.wrathofdungeons.dungeonapi.DungeonAPI;
+import net.wrathofdungeons.dungeonhub.cmd.SelectServerCommand;
 import net.wrathofdungeons.dungeonhub.cmd.SetSpawnCommand;
 import net.wrathofdungeons.dungeonhub.listener.PlayerChatListener;
 import net.wrathofdungeons.dungeonhub.listener.PlayerJoinListener;
@@ -34,6 +35,7 @@ public class DungeonHub extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new WeatherChangeListener(),this);
 
         new SetSpawnCommand();
+        new SelectServerCommand();
 
         spawnLocation = new Location(mainWorld,getConfig().getDouble("locations.spawn.x"),getConfig().getDouble("locations.spawn.y"),getConfig().getDouble("locations.spawn.z"),getConfig().getInt("locations.spawn.yaw"),getConfig().getInt("locations.spawn.pitch"));
     }
