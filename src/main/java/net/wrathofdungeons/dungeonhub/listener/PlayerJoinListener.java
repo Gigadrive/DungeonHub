@@ -5,6 +5,7 @@ import net.wrathofdungeons.dungeonapi.user.User;
 import net.wrathofdungeons.dungeonapi.util.ItemUtil;
 import net.wrathofdungeons.dungeonhub.DungeonHub;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,6 +18,7 @@ public class PlayerJoinListener implements Listener {
         Player p = e.getPlayer();
 
         p.teleport(DungeonHub.spawnLocation);
+        p.setGameMode(GameMode.ADVENTURE);
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);
 
