@@ -16,6 +16,7 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
+        User.load(p);
 
         p.teleport(DungeonHub.spawnLocation);
         p.setGameMode(GameMode.ADVENTURE);
