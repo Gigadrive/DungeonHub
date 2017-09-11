@@ -3,4 +3,5 @@ authors: [Zeryther]
 website: https://wrathofdungeons.net
 version: 1.0
 main: net.wrathofdungeons.dungeonhub.DungeonHub
+depend: [DungeonAPI]
 softdepend: [HolographicDisplays]
