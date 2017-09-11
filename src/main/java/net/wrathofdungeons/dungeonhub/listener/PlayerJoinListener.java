@@ -13,7 +13,7 @@ public class PlayerJoinListener implements Listener {
     public void onJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
 
-        p.teleport(DungeonHub.mainWorld.getSpawnLocation());
+        p.teleport(DungeonHub.spawnLocation);
     }
 
     @EventHandler
