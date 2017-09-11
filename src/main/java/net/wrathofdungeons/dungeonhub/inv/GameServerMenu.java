@@ -25,10 +25,8 @@ public class GameServerMenu {
         if(SERVER == null){
             SERVER = new ArrayList<Server>();
 
-            for(ServerInfo info : CloudAPI.getInstance().getServers()){
-                if(info.getTemplate().getName().equalsIgnoreCase("Game")){
-                    SERVER.add(new Server(info.getServiceId().getServerId(), info.getOnlineCount(), info.getMaxPlayers()));
-                }
+            for(ServerInfo info : CloudAPI.getInstance().getServers("Game")){
+                SERVER.add(new Server(info.getServiceId().getServerId(), info.getOnlineCount(), info.getMaxPlayers()));
             }
 
             new BukkitRunnable(){
@@ -100,7 +98,7 @@ public class GameServerMenu {
                 } else {
                     p.sendMessage(ChatColor.DARK_RED + "This server is full!");
                 }
-            }));
+            }),ClickType.LEFT);
 
             slot++;
         }
