@@ -29,11 +29,13 @@ public class DungeonHub extends JavaPlugin {
         mainWorld.setDifficulty(Difficulty.PEACEFUL);
 
         Bukkit.getPluginManager().registerEvents(new BlockListener(),this);
+        Bukkit.getPluginManager().registerEvents(new DamageListener(),this);
         Bukkit.getPluginManager().registerEvents(new InventoryClickListener(),this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(),this);
         Bukkit.getPluginManager().registerEvents(new PlayerChatListener(),this);
         Bukkit.getPluginManager().registerEvents(new PlayerInteractListener(),this);
         Bukkit.getPluginManager().registerEvents(new PlayerDropListener(),this);
+        Bukkit.getPluginManager().registerEvents(new PlayerMoveListener(),this);
         Bukkit.getPluginManager().registerEvents(new WeatherChangeListener(),this);
 
         new SetSpawnCommand();
