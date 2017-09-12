@@ -18,6 +18,8 @@ public class PlayerJoinListener implements Listener {
         Player p = e.getPlayer();
         User.load(p);
 
+        e.setJoinMessage(null);
+
         p.teleport(DungeonHub.spawnLocation);
         p.setGameMode(GameMode.ADVENTURE);
         p.getInventory().clear();

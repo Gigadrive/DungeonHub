@@ -36,6 +36,7 @@ public class DungeonHub extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerInteractListener(),this);
         Bukkit.getPluginManager().registerEvents(new PlayerDropListener(),this);
         Bukkit.getPluginManager().registerEvents(new PlayerMoveListener(),this);
+        Bukkit.getPluginManager().registerEvents(new PlayerQuitListener(),this);
         Bukkit.getPluginManager().registerEvents(new WeatherChangeListener(),this);
 
         new SetSpawnCommand();
