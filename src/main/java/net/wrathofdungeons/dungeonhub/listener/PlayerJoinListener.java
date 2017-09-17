@@ -4,6 +4,8 @@ import net.wrathofdungeons.dungeonapi.event.PlayerCoreDataLoadedEvent;
 import net.wrathofdungeons.dungeonapi.user.User;
 import net.wrathofdungeons.dungeonapi.util.ItemUtil;
 import net.wrathofdungeons.dungeonhub.DungeonHub;
+import net.wrathofdungeons.dungeonhub.inv.GameServerMenu;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -33,6 +35,8 @@ public class PlayerJoinListener implements Listener {
         Player p = e.getPlayer();
         User u = User.getUser(p);
 
-        u.updateName();
+        for(Player all : Bukkit.getOnlinePlayers()){
+            if(User.isLoaded(all)) User.getUser(all).updateName();
+        }
     }
 }
