@@ -1,7 +1,7 @@
 package net.wrathofdungeons.dungeonhub.inv;
 
-import de.dytanic.cloudnet.api.CloudNetAPI;
-import de.dytanic.cloudnet.network.ServerInfo;
+import de.dytanic.cloudnet.api.CloudAPI;
+import de.dytanic.cloudnet.lib.server.info.ServerInfo;
 import net.wrathofdungeons.dungeonapi.user.User;
 import net.wrathofdungeons.dungeonapi.util.ItemUtil;
 import net.wrathofdungeons.dungeonapi.util.Util;
@@ -25,9 +25,8 @@ public class GameServerMenu {
         if(SERVER == null){
             SERVER = new ArrayList<Server>();
 
-            for(String id : CloudNetAPI.getInstance().getServers("Game")){
-                ServerInfo info = CloudNetAPI.getInstance().getServerInfo(id);
-                SERVER.add(new Server(id, info.getOnlineCount(), info.getMaxPlayers()));
+            for(ServerInfo info : CloudAPI.getInstance().getServers("Game")){
+                SERVER.add(new Server(info.getServiceId().getServerId(), info.getOnlineCount(), info.getMaxPlayers()));
             }
 
             new BukkitRunnable(){
