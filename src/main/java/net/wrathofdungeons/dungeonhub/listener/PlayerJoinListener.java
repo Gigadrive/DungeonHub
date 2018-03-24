@@ -4,7 +4,6 @@ import net.wrathofdungeons.dungeonapi.event.PlayerCoreDataLoadedEvent;
 import net.wrathofdungeons.dungeonapi.user.User;
 import net.wrathofdungeons.dungeonapi.util.ItemUtil;
 import net.wrathofdungeons.dungeonhub.DungeonHub;
-import net.wrathofdungeons.dungeonhub.inv.GameServerMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -28,6 +27,7 @@ public class PlayerJoinListener implements Listener {
         p.getInventory().setArmorContents(null);
 
         p.getInventory().addItem(ItemUtil.namedItem(Material.COMPASS, ChatColor.GREEN + "Server Selector",null));
+        p.setResourcePack("https://wrathofdungeons.net/resourcepack.zip");
     }
 
     @EventHandler
